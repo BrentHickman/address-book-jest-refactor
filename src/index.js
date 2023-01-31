@@ -1,3 +1,9 @@
+import './css/styles.css';
+import AddressBook from './addressbook.js';
+import Contact from './contact.js';
+
+let myAddressBook = new AddressBook();
+
 function addNewLine(passedInId){
   //creates a new li element 
   //finds the ul in the html 
