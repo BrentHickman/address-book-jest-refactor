@@ -2,6 +2,7 @@ import './css/styles.css';
 import AddressBook from './addressbook.js';
 import Contact from './contact.js';
 
+
 let myAddressBook = new AddressBook();
 
 function addNewLine(passedInId){
@@ -14,8 +15,6 @@ function addNewLine(passedInId){
   newLine.setAttribute('id', passedInId);
   newLink.setAttribute('id', "link" + passedInId);
   newLink.setAttribute('href', "javascript:showMore(" + passedInId + ")");
-  //newLink.setAttribute('href', `javascript:showMore(${passedInId})`);
-
 
   newLink.innerText =  "Name: " + myAddressBook.findContact(passedInId).addressName;
   newLine.append(newLink);
@@ -52,13 +51,13 @@ function addNewLine(passedInId){
 
 function showMore(elementToToggle){
   if (document.getElementById("ul" + elementToToggle + "1").getAttribute("class") === "hidden"){
-      document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "notHidden");
-      document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "notHidden"); 
-      document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "notHidden"); 
+    document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "notHidden");
+    document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "notHidden"); 
+    document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "notHidden"); 
   } else {
-      document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "hidden");
-      document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "hidden"); 
-      document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "hidden"); 
+    document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "hidden");
+    document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "hidden"); 
+    document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "hidden"); 
   }
   //find the element we want
   //check if it is hidden
@@ -75,21 +74,14 @@ window.addEventListener("load", function(){
 function onSubmit(event){
   event.preventDefault();
 
-  // let tempMultEmail = new Email(
-    // document.getElementById("placeWorkEmailId").value,
-    // document.getElementById("placePersonalEmailId").value
-  // );
-
   let tempContact = new Contact(
-      document.getElementById("placeNameId").value, 
-      document.getElementById("placeAddressId").value, 
-      document.getElementById("placePhoneId").value,
-      document.getElementById("placeWorkEmailId").value,
-      document.getElementById("placePersonalEmailId").value
-      // document.getElementById("placeEmailId").value
-      );
+    document.getElementById("placeNameId").value, 
+    document.getElementById("placeAddressId").value, 
+    document.getElementById("placePhoneId").value,
+    document.getElementById("placeWorkEmailId").value,
+    document.getElementById("placePersonalEmailId").value
+  );
 
   myAddressBook.addContact(tempContact);
-  // multEmails.addEmail(tempMultEmail);
   addNewLine(myAddressBook.currentId);
-};
+}

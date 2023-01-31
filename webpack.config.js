@@ -17,7 +17,7 @@ module.exports = {
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Triangle Tracker Refactor',
+      title: 'Address Book Jest Refactor',
       template: './src/index.html',
       inject: 'body'
     })
