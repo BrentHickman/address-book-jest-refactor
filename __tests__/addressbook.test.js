@@ -7,4 +7,11 @@ describe('AddressBook', () => {
     expect(myAddressBook.contacts).toEqual({contacts:"contact1"});
     expect(myAddressBook.currentId).toEqual(0);
   });
+
+  test('should increase the id of the AddressBook object by one', () => {
+    const myAddressBook = new AddressBook("contact1", 0);
+    myAddressBook.assignId();
+    expect(myAddressBook.contacts).toEqual({contacts:"contact1"});
+    expect(myAddressBook.currentId).toEqual(1);
+  });
 });

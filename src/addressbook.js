@@ -10,10 +10,10 @@ export default function AddressBook(contacts, currentId){
 //   this.contacts[contact.id] = contact;
 // };
 
-// AddressBook.prototype.assignId = function(){
-//   this.currentId += 1;
-//   return this.currentId;
-// };
+AddressBook.prototype.assignId = function(){
+  // this.currentId += 1;
+  // return this.currentId;
+};
 
 // AddressBook.prototype.findContact = function(id){
 //   if (this.contacts[id] !== undefined){
