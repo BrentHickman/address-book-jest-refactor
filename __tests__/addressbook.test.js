@@ -21,4 +21,12 @@ describe('AddressBook', () => {
     myAddressBook.addContact(myContact);
     expect(myAddressBook.contacts).toEqual({"contact":{addressName:"Name",addressAddress:"Address", addressPhone:"Number",workEmail:"WorkEmail",personalEmail:"PersonalEmail"}});
   });
+
+  test('should add an id property to Contact object in the AddressBook object', () => {
+    const myAddressBook = new AddressBook();
+    const myContact = {addressName:"Name",addressAddress:"Address", addressPhone:"Number",workEmail:"WorkEmail",personalEmail:"PersonalEmail"};
+    myAddressBook.addContact(myContact);
+    expect(myAddressBook.contacts).toEqual({"contact":{addressName:"Name",addressAddress:"Address", addressPhone:"Number",workEmail:"WorkEmail",personalEmail:"PersonalEmail"}});
+    expect(myContact.currentId).toEqual(1);
+  });
 });
