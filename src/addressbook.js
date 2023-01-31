@@ -11,7 +11,7 @@ export default function AddressBook(contacts, currentId){
 // };
 
 AddressBook.prototype.assignId = function(){
-  // this.currentId += 1;
+  this.currentId += 1;
   // return this.currentId;
 };
 
