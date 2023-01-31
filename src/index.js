@@ -14,7 +14,7 @@ function addNewLine(passedInId){
   let newLink = document.createElement('a');
   newLine.setAttribute('id', passedInId);
   newLink.setAttribute('id', "link" + passedInId);
-  newLink.setAttribute('href', "javascript:showMore(" + passedInId + ")");
+  // newLink.setAttribute('href', "javascript:showMore(" + passedInId + ")");
 
   newLink.innerText =  "Name: " + myAddressBook.findContact(passedInId).addressName;
   newLine.append(newLink);
@@ -31,6 +31,10 @@ function addNewLine(passedInId){
   let newUl3 = document.createElement('ul');
   newUl3.setAttribute('id', "ul" + passedInId + "3");
   newLine.append(newUl3);
+
+  let newUl4 = document.createElement('ul');
+  newUl4.setAttribute('id', "ul" + passedInId + "4");
+  newLine.append(newUl4);
   
   let hiddenTextAddress = document.createElement('li');
   hiddenTextAddress = "Address: " + myAddressBook.findContact(passedInId).addressAddress;
@@ -40,32 +44,38 @@ function addNewLine(passedInId){
   hiddenTextNumber = "Number: " + myAddressBook.findContact(passedInId).addressPhone;
   document.getElementById("ul" + passedInId + "2").append(hiddenTextNumber);
 
-  let hiddenTextEmail = document.createElement('li');
-  hiddenTextEmail = "Email: " + myAddressBook.findContact(passedInId).addressEmail;
-  document.getElementById("ul" + passedInId + "3").append(hiddenTextEmail);
+  let hiddenTextWorkEmail = document.createElement('li');
+  hiddenTextWorkEmail = "Work Email: " + myAddressBook.findContact(passedInId).workEmail;
+  document.getElementById("ul" + passedInId + "3").append(hiddenTextWorkEmail);
 
-  document.getElementById("ul" + passedInId + "1").setAttribute('class', 'hidden');
-  document.getElementById("ul" + passedInId + "2").setAttribute('class', 'hidden');
-  document.getElementById("ul" + passedInId + "3").setAttribute('class', 'hidden');
+  let hiddenTextPerEmail = document.createElement('li');
+  hiddenTextPerEmail = "Work Email: " + myAddressBook.findContact(passedInId).personalEmail;
+  document.getElementById("ul" + passedInId + "4").append(hiddenTextPerEmail);
+
+  // document.getElementById("ul" + passedInId + "1").setAttribute('class', 'hidden');
+  // document.getElementById("ul" + passedInId + "2").setAttribute('class', 'hidden');
+  // document.getElementById("ul" + passedInId + "3").setAttribute('class', 'hidden');
+  // document.getElementById("ul" + passedInId + "4").setAttribute('class', 'hidden');
 }
 
-function showMore(elementToToggle){
-  if (document.getElementById("ul" + elementToToggle + "1").getAttribute("class") === "hidden"){
-    document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "notHidden");
-    document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "notHidden"); 
-    document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "notHidden"); 
-  } else {
-    document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "hidden");
-    document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "hidden"); 
-    document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "hidden"); 
-  }
-  //find the element we want
-  //check if it is hidden
-  //if it is hidden, change the class to 'notHidden'
-  //if it is notHidden, change the class to 'hidden'
-  //do stuff
-  console.log(elementToToggle);
-}
+// export default function showMore(elementToToggle){
+//   if (document.getElementById("ul" + elementToToggle + "1").getAttribute("class") === "hidden"){
+//     document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "notHidden");
+//     document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "notHidden"); 
+//     document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "notHidden");
+//     document.getElementById("ul" + elementToToggle + "4").setAttribute("class", "notHidden");  
+//   } else {
+//     document.getElementById("ul" + elementToToggle + "1").setAttribute("class", "hidden");
+//     document.getElementById("ul" + elementToToggle + "2").setAttribute("class", "hidden"); 
+//     document.getElementById("ul" + elementToToggle + "3").setAttribute("class", "hidden");
+//     document.getElementById("ul" + elementToToggle + "4").setAttribute("class", "hidden");  
+//   }
+//   // find the element we want
+//   // check if it is hidden
+//   // if it is hidden, change the class to 'notHidden'
+//   // if it is notHidden, change the class to 'hidden'
+//   // do stuff
+// }
 
 window.addEventListener("load", function(){
   document.getElementById("newAddressInput").addEventListener("submit", onSubmit);
