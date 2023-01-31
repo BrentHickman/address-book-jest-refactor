@@ -1,8 +1,8 @@
 // let myAddressBook = new AddressBook();
 
-export default function AddressBook(){
-  // this.contacts = {};
-  // this.currentId = 0;
+export default function AddressBook(contacts, currentId){
+  this.contacts = {contacts};
+  this.currentId = currentId;
 }
 
 // AddressBook.prototype.addContact = function(contact){
